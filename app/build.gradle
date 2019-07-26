@@ -9,7 +9,7 @@ android {
     buildToolsVersion "29.0.0"
     defaultConfig {
         applicationId "com.gdg.pune.devfest19"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -28,7 +28,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // Android
     implementation 'androidx.appcompat:appcompat:1.0.2'
@@ -40,7 +40,6 @@ dependencies {
 
     // Firebase
     implementation 'com.google.firebase:firebase-core:17.0.1'
-    implementation 'com.google.firebase:firebase-ads:18.1.0'
     implementation 'com.google.firebase:firebase-auth:18.1.0'
     implementation 'com.google.firebase:firebase-firestore:20.1.0'
     implementation 'com.google.firebase:firebase-database:18.0.0'
@@ -62,6 +61,10 @@ dependencies {
     // Material Dialog Library
     implementation 'com.shreyaspatil:MaterialDialog:1.0.0'
 
+    // Material Drawer Library
+    implementation "com.mikepenz:materialdrawer:6.1.2"
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

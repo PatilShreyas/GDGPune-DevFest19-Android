@@ -1,17 +1,178 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/google_blue</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/google_sans</item>
+        <item name="colorControlActivated">?colorPrimary</item>
+        <item name="toolbarStyle">@style/Widget.Toolbar</item>
+        <item name="android:textViewStyle">@style/Widget.TextView</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:navigationBarColor">@color/google_blue_light</item>
+        <item name="android:textColorTertiary">@color/text_color_tertiary</item>
+
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
+
     <style name="AppTheme.NoActionBar">
+        <item name="android:fontFamily">@font/google_sans</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-    </style>
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+        <item name="colorPrimary">@color/google_blue</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/material_drawer_accent</item>
+
+        <!-- MaterialDrawer specific values -->
+        <item name="material_drawer_background">@color/material_drawer_background</item>
+        <item name="material_drawer_primary_text">@color/dark_gray</item>
+        <item name="material_drawer_primary_icon">@color/material_drawer_primary_icon</item>
+        <item name="material_drawer_divider">@color/material_drawer_divider</item>
+        <item name="material_drawer_selected">@color/md_purple_50
+        </item> <!-- Material 2 defines 12% alpha, primary color -->
+        <item name="material_drawer_selected_legacy">@color/md_purple_50
+        </item> <!-- Defines the color if legacy style (Material 1, is enabled) -->
+        <item name="material_drawer_selected_text">@color/md_purple_400</item>
+        <item name="material_drawer_header_selection_text">@color/md_purple_400</item>
+        <item name="material_drawer_header_selection_subtext">@color/material_drawer_dark_header_selection_subtext
+        </item>
+        <item name="material_drawer_legacy_style">false</item> <!-- Enables legacy Material 1 style -->
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Light">
+        <item name="android:fontFamily">@font/google_sans</item>
+    </style>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light">
+        <item name="android:fontFamily">@font/google_sans</item>
+    </style>
+
+    <style name="Widget.AppBar" parent="@style/Widget.Design.AppBarLayout">
+        <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Widget.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">@color/white</item>
+        <item name="titleTextAppearance">@style/TextAppearance.ToolbarTitle</item>
+        <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
+    </style>
+
+    <style name="TextAppearance.ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:fontFamily">@font/google_sans</item>
+    </style>
+
+    <style name="Widget.TextView" parent="@android:style/Widget.Material.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.ADSSched.Body</item>
+        <item name="android:lineSpacingMultiplier">@dimen/text_line_spacing</item>
+    </style>
+
+    <style name="TextAppearance.ADSSched.Body" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style name="Widget.RaisedButton" parent="@style/Widget.AppCompat.Button.Colored">
+        <item name="android:fontFamily">@font/google_sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing" tools:targetApi="lollipop">0.025</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+    <style name="Widget.BorderlessButton" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="android:fontFamily">@font/google_sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?colorPrimary</item>
+        <item name="android:letterSpacing" tools:targetApi="lollipop">0.025</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingTop">@dimen/padding_micro</item>
+        <item name="android:paddingBottom">@dimen/padding_micro</item>
+    </style>
+
+    <!-- set the rounded drawable as background to your bottom sheet -->
+    <style name="AppBottomSheetDialogTheme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+        <item name="android:statusBarColor">@color/status_bar</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle"
+           parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottomsheet_back</item>
+    </style>
+
+    <style name="DrawerItem"></style>
+
+    <style name="DrawerItem.TextInActive">
+        <item name="android:textColor">@color/grey_600</item>
+        <item name="android:textSize">@dimen/drawer_text_size</item>
+    </style>
+
+    <style name="DrawerItem.IconInActive">
+        <item name="android:tint">@color/grey_600</item>
+    </style>
+
+    <style name="DrawerItem.TextActive">
+        <item name="android:textColor">@color/md_purple_400</item>
+        <item name="android:textSize">@dimen/drawer_text_size</item>
+    </style>
+
+    <style name="DrawerItem.IconActive">
+        <item name="android:tint">@color/md_purple_400</item>
+    </style>
+
+    <style name="DrawerItem.Active">
+        <item name="android:background">@drawable/drawer_item_active</item>
+    </style>
+
+    <style name="DrawerItem.InActive">
+        <item name="android:background">@drawable/drawer_item_inactive</item>
+    </style>
+
+    <style name="CustomTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- ...and here we setting appcompat’s color theming attrs -->
+        <item name="colorPrimary">@color/material_drawer_primary</item>
+        <item name="colorPrimaryDark">@color/material_drawer_primary_dark</item>
+        <item name="colorAccent">@color/material_drawer_accent</item>
+
+        <!-- MaterialDrawer specific values -->
+        <item name="material_drawer_background">@color/material_drawer_background</item>
+        <item name="material_drawer_primary_text">@color/material_drawer_primary_text</item>
+        <item name="material_drawer_primary_icon">@color/md_purple_400</item>
+        <item name="material_drawer_secondary_text">@color/material_drawer_secondary_text</item>
+        <item name="material_drawer_hint_text">@color/material_drawer_hint_text</item>
+        <item name="material_drawer_divider">@color/material_drawer_divider</item>
+        <item name="material_drawer_selected">@color/md_purple_50
+        </item> <!-- Material 2 defines 12% alpha, primary color -->
+        <item name="material_drawer_selected_legacy">@color/md_purple_50
+        </item> <!-- Defines the color if legacy style (Material 1, is enabled) -->
+        <item name="material_drawer_selected_text">@color/md_purple_400</item>
+        <item name="material_drawer_header_selection_text">@color/md_purple_400</item>
+        <item name="material_drawer_header_selection_subtext">@color/material_drawer_dark_header_selection_subtext
+        </item>
+        <item name="material_drawer_legacy_style">false</item> <!-- Enables legacy Material 1 style -->
+
+        <item name="android:fontFamily">@font/google_sans</item>
+        <item name="colorControlActivated">?colorPrimary</item>
+        <item name="toolbarStyle">@style/Widget.Toolbar</item>
+        <item name="android:textViewStyle">@style/Widget.TextView</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:navigationBarColor">@color/google_blue_light</item>
+        <item name="android:textColorTertiary">@color/text_color_tertiary</item>
+
+    </style>
 </resources>

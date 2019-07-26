@@ -1,3 +1,24 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="padding_normal">16dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_micro">4dp</dimen>
+
+    <dimen name="margin_large">32dp</dimen>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_micro">4dp</dimen>
+
+    <dimen name="recycler_view_width">240dp</dimen>
+    <dimen name="drawer_item_view_width">200dp</dimen>
+
+    <item name="text_line_spacing" format="float" type="dimen">1.2</item>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">100dp</dimen>
+    <dimen name="drawer_text_size">18sp</dimen>
+    <dimen name="card_radius">32dp</dimen>
+    <dimen name="drawer_item_view_height">32dp</dimen>
 </resources>
