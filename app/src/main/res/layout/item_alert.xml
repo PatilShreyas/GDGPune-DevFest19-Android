@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+            android:id="@+id/announcement_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="1dp"
+            app:cardCornerRadius="3dp"
+            android:layout_margin="@dimen/margin_micro"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+    >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_small">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/alert_timestamp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:textSize="12sp"
+                    android:linksClickable="true"
+                    android:autoLink="all"
+                    android:textStyle="italic"
+                    android:textColorLink="@color/md_light_blue_800"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" tools:text="Few Seconds Ago"
+                    app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
+            />
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/alert_title"
+                    android:textSize="17sp"
+                    android:textColor="@color/md_black_1000"
+                    tools:text="Title"
+                    android:layout_marginStart="8dp"
+                    android:singleLine="true"
+                    app:layout_constraintEnd_toStartOf="@+id/alert_timestamp"
+                    app:layout_constraintTop_toBottomOf="@+id/alert_timestamp"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/alert_body"
+                    android:text="New"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:textSize="14sp"
+                    android:linksClickable="true"
+                    android:autoLink="all"
+                    android:textColorLink="@color/md_light_blue_800"
+                    app:layout_constraintTop_toBottomOf="@+id/alert_title" app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp" android:layout_marginTop="8dp" tools:text="Body of announcement"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

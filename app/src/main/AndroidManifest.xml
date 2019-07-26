@@ -15,14 +15,9 @@
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
         <activity
-                android:name=".Main2Activity"
-                android:label="@string/title_activity_main2"
+                android:name=".ui.AnnouncementListActivity"
+                android:label="@string/title_activity_list"
                 android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
         </activity>
         <activity
                 android:name=".ui.MainActivity"

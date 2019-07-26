@@ -65,9 +65,9 @@
                     android:layout_weight="0.5"
                     android:layout_width="0dp"
                     android:clickable="true"
+                    app:cardCornerRadius="@dimen/card_radius"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:focusable="true"
-                    app:cardBackgroundColor="@color/md_red_600"
                     android:layout_height="wrap_content">
                 <LinearLayout
                         android:layout_width="match_parent"
@@ -79,7 +79,7 @@
                             android:layout_gravity="center"
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:tint="@color/white"
+                            android:tint="@color/md_amber_700"
                             android:layout_margin="@dimen/margin_small"
                             android:src="@drawable/ic_notifications"/>
                     <TextView
@@ -87,7 +87,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/margin_small"
-                            android:textColor="@color/white"
+                            android:textColor="@color/md_amber_700"
                             android:text="@string/menu_announcements"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -100,7 +100,8 @@
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:focusable="true"
-                    app:cardBackgroundColor="@color/md_green_700"
+
+                    app:cardCornerRadius="@dimen/card_radius"
                     android:layout_height="wrap_content">
                 <LinearLayout
                         android:layout_width="match_parent"
@@ -113,14 +114,14 @@
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:layout_margin="@dimen/margin_small"
-                            android:tint="@color/white"
+                            android:tint="@color/md_green_600"
                             android:src="@drawable/ic_people"/>
                     <TextView
                             android:gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/margin_small"
-                            android:textColor="@color/white"
+                            android:textColor="@color/md_green_600"
                             android:text="@string/menu_discuss"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

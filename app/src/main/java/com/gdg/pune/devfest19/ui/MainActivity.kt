@@ -91,6 +91,10 @@ class MainActivity : AppCompatActivity() {
 
         initRemoteConfig()
         fetchRemoteConfig()
+
+        cardAnnouncements.setOnClickListener {
+            startActivity(Intent(this@MainActivity, AnnouncementListActivity::class.java))
+        }
     }
 
     private fun initRemoteConfig() {

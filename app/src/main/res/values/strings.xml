@@ -29,5 +29,6 @@
 
     <string name="text_welcome">Welcome to \nGDG Pune DevFest 2019</string>
     <string name="button_apply_now">Apply Now</string>
+    <string name="title_activity_list">Announcements</string>
 
 </resources>
