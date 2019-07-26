@@ -24,4 +24,9 @@
     <string name="menu_organiser">Organisers</string>
     <string name="menu_developers">Developers</string>
     <string name="menu_logout">Logout</string>
+    <string name="fcm_channel_name">gdg_devfest</string>
+    <string name="event_date">September X, 2019</string>
+
+    <string name="text_welcome">Welcome to \nGDG Pune DevFest 2019</string>
+
 </resources>

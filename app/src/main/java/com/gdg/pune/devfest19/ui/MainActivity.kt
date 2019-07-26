@@ -80,17 +80,19 @@ class MainActivity : AppCompatActivity() {
             )
             //.inflateMenu(R.menu.activity_main2_drawer)
             .withOnDrawerItemClickListener { view, position, drawerItem ->
-                if (drawerItem is Nameable<*>) {
+                if (drawerItem == itemLogout) {
                     Toast.makeText(
                         this@MainActivity,
                         (drawerItem as Nameable<*>).name!!.getText(this@MainActivity),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-
+                title = (drawerItem as Nameable<*>).name!!.getText(this@MainActivity)
                 false
             }.build()
 
+        // Set Default
+        result?.setSelection(1)
     }
 
     override fun onBackPressed() {
@@ -169,4 +171,5 @@ class MainActivity : AppCompatActivity() {
             onAuthNotFound()
         }
     }
+
 }

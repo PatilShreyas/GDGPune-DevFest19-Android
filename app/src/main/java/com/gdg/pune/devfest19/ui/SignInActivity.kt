@@ -180,7 +180,7 @@ class SignInActivity : BaseActivity(), View.OnClickListener {
 
         Log.d(javaClass.name, "Subscribing to pualerts topic")
         // [START subscribe_topics]
-        FirebaseMessaging.getInstance().subscribeToTopic("gdg-pune-df19")
+        FirebaseMessaging.getInstance().subscribeToTopic(resources.getString(R.string.fcm_channel_name))
         // [END subscribe_topics]
     }
 
