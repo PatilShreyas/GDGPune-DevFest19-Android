@@ -4,10 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.gdg.pune.devfest19.BuildConfig
 import com.gdg.pune.devfest19.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.model.DividerDrawerItem
@@ -17,10 +20,12 @@ import com.mikepenz.materialdrawer.model.interfaces.Nameable
 import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog
 import com.shreyaspatil.MaterialDialog.MaterialDialog
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var remoteConfig: FirebaseRemoteConfig
     private lateinit var mAuth: FirebaseAuth
     private var result: Drawer? = null
 
@@ -33,6 +38,7 @@ class MainActivity : AppCompatActivity() {
             PrimaryDrawerItem().withName(R.string.menu_home).withIcon(R.drawable.ic_home).withTintSelectedIcon(true)
                 .withIconColor(resources.getColor(R.color.dark_gray))
                 .withSelectedIconColor(resources.getColor(R.color.md_purple_400))
+                .withIdentifier(1)
         val itemSchedule = PrimaryDrawerItem().withName(R.string.menu_schedule).withIcon(R.drawable.ic_menu_schedule)
             .withTintSelectedIcon(true).withIconColor(resources.getColor(R.color.dark_gray))
             .withSelectedIconColor(resources.getColor(R.color.md_purple_400))
@@ -91,8 +97,28 @@ class MainActivity : AppCompatActivity() {
                 false
             }.build()
 
-        // Set Default
-        result?.setSelection(1)
+        initRemoteConfig()
+        fetchRemoteConfig()
+    }
+
+    private fun initRemoteConfig() {
+        remoteConfig = FirebaseRemoteConfig.getInstance()
+
+        val configSettings = FirebaseRemoteConfigSettings.Builder()
+            .setDeveloperModeEnabled(BuildConfig.DEBUG)
+            .setMinimumFetchIntervalInSeconds(4200)
+            .build()
+        remoteConfig.setConfigSettings(configSettings)
+        remoteConfig.setDefaults(R.xml.remote_config_defaults)
+    }
+
+    private fun fetchRemoteConfig() {
+        // [START fetch_config_with_callback]
+        remoteConfig.fetchAndActivate()
+            .addOnCompleteListener(this) { task ->
+                updateUi()
+            }
+        // [END fetch_config_with_callback]
     }
 
     override fun onBackPressed() {
@@ -115,6 +141,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+
+        // Set Default
+        result?.setSelection(1)
 
         mAuth = FirebaseAuth.getInstance()
         val firebaseUser = mAuth.currentUser
@@ -170,6 +199,23 @@ class MainActivity : AppCompatActivity() {
         googleSignInClient.signOut().addOnCompleteListener(this) {
             onAuthNotFound()
         }
+    }
+
+    private fun updateUi() {
+        // [START get_config_values]
+        textView_event_date.text = remoteConfig.getString(EVENT_DATE_KEY)
+        val welcomeMessage = remoteConfig.getString(EVENT_DATE_KEY)
+        // [END get_config_values]
+
+    }
+
+    companion object {
+
+        private const val TAG = "MainActivity"
+
+        // Remote Config keys
+        private const val EVENT_DATE_KEY = "event_date"
+        private const val IS_APPLY_BUTTON_AVAILABLE_KEY = "apply_available"
     }
 
 }

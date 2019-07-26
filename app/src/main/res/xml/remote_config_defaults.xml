@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>event_date</key>
+        <value>September X, 2019</value>
+    </entry>
+    <entry>
+        <key>apply_available</key>
+        <value>false</value>
+    </entry>
+</defaultsMap>

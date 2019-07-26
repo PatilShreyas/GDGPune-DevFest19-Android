@@ -44,6 +44,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:20.1.0'
     implementation 'com.google.firebase:firebase-database:18.0.0'
     implementation 'com.google.firebase:firebase-messaging:19.0.1'
+    implementation 'com.google.firebase:firebase-config:18.0.0'
 
     // FirebaseUI Binding Library
     implementation 'com.firebaseui:firebase-ui-firestore:5.0.0'
