@@ -2,6 +2,7 @@ package com.gdg.pune.devfest19.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.gdg.pune.devfest19.BuildConfig
@@ -45,13 +46,6 @@ class MainActivity : AppCompatActivity() {
         val itemSpeakers = PrimaryDrawerItem().withName(R.string.menu_speakers).withIcon(R.drawable.ic_person)
             .withTintSelectedIcon(true).withIconColor(resources.getColor(R.color.dark_gray))
             .withSelectedIconColor(resources.getColor(R.color.md_purple_400))
-        val itemAnnouncements =
-            PrimaryDrawerItem().withName(R.string.menu_announcements).withIcon(R.drawable.ic_notifications)
-                .withTintSelectedIcon(true).withIconColor(resources.getColor(R.color.dark_gray))
-                .withSelectedIconColor(resources.getColor(R.color.md_purple_400))
-        val itemDiscuss = PrimaryDrawerItem().withName(R.string.menu_discuss).withIcon(R.drawable.ic_people)
-            .withTintSelectedIcon(true).withIconColor(resources.getColor(R.color.dark_gray))
-            .withSelectedIconColor(resources.getColor(R.color.md_purple_400))
         val itemFindWay = PrimaryDrawerItem().withName(R.string.menu_find_your_way).withIcon(R.drawable.ic_location)
             .withTintSelectedIcon(true).withIconColor(resources.getColor(R.color.dark_gray))
             .withSelectedIconColor(resources.getColor(R.color.md_purple_400))
@@ -76,8 +70,6 @@ class MainActivity : AppCompatActivity() {
                 itemHome,
                 itemSchedule,
                 itemSpeakers,
-                itemAnnouncements,
-                itemDiscuss,
                 itemFindWay,
                 itemOrganiser,
                 DividerDrawerItem(),
@@ -204,7 +196,11 @@ class MainActivity : AppCompatActivity() {
     private fun updateUi() {
         // [START get_config_values]
         textView_event_date.text = remoteConfig.getString(EVENT_DATE_KEY)
-        val welcomeMessage = remoteConfig.getString(EVENT_DATE_KEY)
+        if (remoteConfig.getBoolean(IS_APPLY_BUTTON_AVAILABLE_KEY)) {
+            buttonApply.visibility = View.VISIBLE
+        } else {
+            buttonApply.visibility = View.GONE
+        }
         // [END get_config_values]
 
     }
