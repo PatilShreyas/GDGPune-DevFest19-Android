@@ -17,5 +17,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-    <include layout="@layout/fragment_home"/>
+    <include layout="@layout/content_main"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -2,17 +2,13 @@ package com.gdg.pune.devfest19.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.gdg.pune.devfest19.BuildConfig
+import androidx.fragment.app.Fragment
 import com.gdg.pune.devfest19.R
-import com.gdg.pune.devfest19.ui.discuss.DiscussActivity
+import com.gdg.pune.devfest19.ui.fragment.HomeFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.remoteconfig.FirebaseRemoteConfig
-import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.model.DividerDrawerItem
@@ -22,12 +18,10 @@ import com.mikepenz.materialdrawer.model.interfaces.Nameable
 import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog
 import com.shreyaspatil.MaterialDialog.MaterialDialog
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_home.*
 
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity() {
 
-    private lateinit var remoteConfig: FirebaseRemoteConfig
     private lateinit var mAuth: FirebaseAuth
     private var result: Drawer? = null
 
@@ -45,22 +39,28 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val itemSchedule = PrimaryDrawerItem().withName(R.string.menu_schedule).withIcon(R.drawable.ic_menu_schedule)
             .withTintSelectedIcon(true).withIconColor(resources.getColor(R.color.md_black_1000))
             .withSelectedIconColor(resources.getColor(R.color.md_blue_700))
+
         val itemSpeakers = PrimaryDrawerItem().withName(R.string.menu_speakers).withIcon(R.drawable.ic_person)
             .withTintSelectedIcon(true).withIconColor(resources.getColor(R.color.md_black_1000))
             .withSelectedIconColor(resources.getColor(R.color.md_blue_700))
+
         val itemFindWay = PrimaryDrawerItem().withName(R.string.menu_find_your_way).withIcon(R.drawable.ic_location)
             .withTintSelectedIcon(true).withIconColor(resources.getColor(R.color.md_black_1000))
             .withSelectedIconColor(resources.getColor(R.color.md_blue_700))
+
         val itemOrganiser = PrimaryDrawerItem().withName(R.string.menu_organiser).withIcon(R.drawable.ic_organizers)
             .withTintSelectedIcon(true).withIconColor(resources.getColor(R.color.md_black_1000))
             .withSelectedIconColor(resources.getColor(R.color.md_blue_700))
+
         val itemDeveloper = SecondaryDrawerItem().withName(R.string.menu_developers).withIcon(R.drawable.ic_menu_manage)
             .withTintSelectedIcon(true).withIconColor(resources.getColor(R.color.md_black_1000))
             .withSelectedIconColor(resources.getColor(R.color.md_blue_700))
+
         val itemLogout =
             SecondaryDrawerItem().withName(R.string.menu_logout).withIcon(R.drawable.ic_exit).withTintSelectedIcon(true)
                 .withIconColor(resources.getColor(R.color.md_black_1000))
                 .withSelectedIconColor(resources.getColor(R.color.md_blue_700))
+                .withSelectable(false)
 
         result = DrawerBuilder()
             .withActivity(this)
@@ -78,55 +78,29 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 itemDeveloper,
                 itemLogout
             )
-            //.inflateMenu(R.menu.activity_main2_drawer)
+            .withSelectedItem(itemHome.identifier)
             .withOnDrawerItemClickListener { view, position, drawerItem ->
-                if (drawerItem == itemLogout) {
-                    Toast.makeText(
-                        this@MainActivity,
-                        (drawerItem as Nameable<*>).name!!.getText(this@MainActivity),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                when (drawerItem) {
+                    itemHome -> setFragment(HomeFragment())
+                    itemSchedule -> {
+                    }//TODO Create Schedule Fragment #2
+                    itemSpeakers -> {
+                    }//TODO Create Speakers Fragment #2
+                    itemFindWay -> {
+                    }//TODO Create MapView Fragment #2
+                    itemOrganiser -> {
+                    }//TODO Create Organiser Fragment #2
+                    itemDeveloper -> {
+                    }//TODO Create Developers Fragment #2
+                    itemLogout -> promptSignOut()
                 }
-                title = (drawerItem as Nameable<*>).name!!.getText(this@MainActivity)
+                if (drawerItem != itemLogout) {
+                    title = (drawerItem as Nameable<*>).name!!.getText(this@MainActivity)
+                }
                 false
             }.build()
 
-        initRemoteConfig()
-        fetchRemoteConfig()
-
-        cardAnnouncements.setOnClickListener(this)
-        cardDiscuss.setOnClickListener(this)
-    }
-
-    private fun initRemoteConfig() {
-        remoteConfig = FirebaseRemoteConfig.getInstance()
-
-        val configSettings = FirebaseRemoteConfigSettings.Builder()
-            .setDeveloperModeEnabled(BuildConfig.DEBUG)
-            .setMinimumFetchIntervalInSeconds(4200)
-            .build()
-        remoteConfig.setConfigSettings(configSettings)
-        remoteConfig.setDefaults(R.xml.remote_config_defaults)
-    }
-
-    private fun fetchRemoteConfig() {
-        // [START fetch_config_with_callback]
-        remoteConfig.fetchAndActivate()
-            .addOnCompleteListener(this) { task ->
-                updateUi()
-            }
-        // [END fetch_config_with_callback]
-    }
-
-    override fun onClick(view: View?) {
-        when (view?.id) {
-            cardAnnouncements.id -> {
-                startActivity(Intent(this@MainActivity, AnnouncementListActivity::class.java))
-            }
-            cardDiscuss.id -> {
-                startActivity(Intent(this@MainActivity, DiscussActivity::class.java))
-            }
-        }
+        setFragment(HomeFragment())
     }
 
     override fun onBackPressed() {
@@ -144,14 +118,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
                 .build()
                 .show()
+
         }
     }
 
     override fun onStart() {
         super.onStart()
-
-        // Set Default
-        result?.setSelection(1)
 
         mAuth = FirebaseAuth.getInstance()
         val firebaseUser = mAuth.currentUser
@@ -162,11 +134,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         } else if (firebaseUser.displayName == null || firebaseUser.email == null || firebaseUser.uid == null) {
             onAuthNotFound()
         } else {
-            mAuth.addAuthStateListener {
-                if (it.currentUser == null) {
-                    onAuthNotFound()
-                }
-            }
+            // Auth successful
         }
     }
 
@@ -183,13 +151,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             .setMessage("Are you sure want to Sign out?")
             .setPositiveButton(
                 "Sign Out"
-            ) { dialogInterface, which -> signOut() }
+            ) { _, _ -> signOut() }
             .setNegativeButton(
                 "No"
-            ) { dialogInterface, which ->
-                if (dialogInterface != null) {
-                    dialogInterface.dismiss()
-                }
+            ) { dialogInterface, _ ->
+                dialogInterface?.dismiss()
             }
             .build()
             .show()
@@ -209,25 +175,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun updateUi() {
-        // [START get_config_values]
-        textView_event_date.text = remoteConfig.getString(EVENT_DATE_KEY)
-        if (remoteConfig.getBoolean(IS_APPLY_BUTTON_AVAILABLE_KEY)) {
-            buttonApply.visibility = View.VISIBLE
-        } else {
-            buttonApply.visibility = View.GONE
-        }
-        // [END get_config_values]
-
+    private fun setFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.container, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
-    companion object {
 
-        private const val TAG = "MainActivity"
-
-        // Remote Config keys
-        private const val EVENT_DATE_KEY = "event_date"
-        private const val IS_APPLY_BUTTON_AVAILABLE_KEY = "apply_available"
-    }
 
 }

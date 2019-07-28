@@ -70,6 +70,6 @@
             app:layout_constraintTop_toBottomOf="@+id/post_Message"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="72dp" android:layout_marginTop="8dp"/>
+            android:layout_marginStart="72dp" android:layout_marginTop="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

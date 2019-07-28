@@ -8,4 +8,8 @@
         <key>apply_available</key>
         <value>false</value>
     </entry>
+    <entry>
+        <key>apply_url</key>
+        <value>http://google.com</value>
+    </entry>
 </defaultsMap>
