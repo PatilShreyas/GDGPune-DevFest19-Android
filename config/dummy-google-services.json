@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1085823127190",
+    "firebase_url": "https://gdg-pune-devfest-dummy.firebaseio.com",
+    "project_id": "gdg-pune-devfest-dummy",
+    "storage_bucket": "gdg-pune-devfest-dummy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1095823127196:android:993dcf5b6a5dfa9d",
+        "android_client_info": {
+          "package_name": "com.gdg.pune.devfest19"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1095823127196-e1ef22hjv8f806mo82r7el447ilgr9l5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gdg.pune.devfest19",
+            "certificate_hash": "81d12896dc1bef6b349163cdcbc6d68bed8c4c44"
+          }
+        },
+        {
+          "client_id": "1095823127196-g5jdfggq86thmtacvg4gib38qtg7geda.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBymPwnA5ID3kK89OQMD-MHnt4kjbXgYSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1095823127196-g5jdfggq87tythacvg4gib38qtg7geda.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
