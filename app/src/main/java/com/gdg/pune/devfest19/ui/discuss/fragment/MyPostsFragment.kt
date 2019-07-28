@@ -7,9 +7,7 @@ import com.google.firebase.firestore.Query
 
 class MyPostsFragment : PostListFragment() {
     override fun getQuery(): Query {
-        return Constants.discussRef
-            .orderBy("timestamp", Query.Direction.DESCENDING)
-            .whereEqualTo("uid", FirebaseAuth.getInstance().currentUser?.uid.toString())
+        return Constants.discussRef.whereEqualTo("uid", FirebaseAuth.getInstance().currentUser?.uid.toString())
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

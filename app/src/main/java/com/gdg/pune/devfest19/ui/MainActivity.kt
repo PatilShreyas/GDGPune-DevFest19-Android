@@ -101,6 +101,7 @@ class MainActivity : AppCompatActivity() {
             }.build()
 
         setFragment(HomeFragment())
+        result?.setSelection(1)
     }
 
     override fun onBackPressed() {
