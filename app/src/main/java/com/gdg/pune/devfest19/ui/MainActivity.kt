@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.gdg.pune.devfest19.BuildConfig
 import com.gdg.pune.devfest19.R
+import com.gdg.pune.devfest19.ui.discuss.DiscussActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -24,7 +25,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var remoteConfig: FirebaseRemoteConfig
     private lateinit var mAuth: FirebaseAuth
@@ -92,9 +93,8 @@ class MainActivity : AppCompatActivity() {
         initRemoteConfig()
         fetchRemoteConfig()
 
-        cardAnnouncements.setOnClickListener {
-            startActivity(Intent(this@MainActivity, AnnouncementListActivity::class.java))
-        }
+        cardAnnouncements.setOnClickListener(this)
+        cardDiscuss.setOnClickListener(this)
     }
 
     private fun initRemoteConfig() {
@@ -115,6 +115,17 @@ class MainActivity : AppCompatActivity() {
                 updateUi()
             }
         // [END fetch_config_with_callback]
+    }
+
+    override fun onClick(view: View?) {
+        when (view?.id) {
+            cardAnnouncements.id -> {
+                startActivity(Intent(this@MainActivity, AnnouncementListActivity::class.java))
+            }
+            cardDiscuss.id -> {
+                startActivity(Intent(this@MainActivity, DiscussActivity::class.java))
+            }
+        }
     }
 
     override fun onBackPressed() {

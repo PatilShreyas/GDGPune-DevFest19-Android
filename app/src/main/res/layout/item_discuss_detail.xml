@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:padding="8dp"
+        android:id="@+id/scrollView"
+        tools:showIn="@layout/activity_discuss_details_view">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_alert"
+                android:layout_margin="@dimen/padding_small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPadding="5dp"
+                app:cardElevation="1dp">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/post_timestamp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:textSize="12sp"
+                        android:layout_margin="8dp"
+                        tools:text="11:11:11 12/12/12"/>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <com.gdg.pune.devfest19.ui.custom.CircleImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:tint="@color/grey_300"
+                            android:background="@drawable/image_back"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:id="@+id/post_profileView"
+                            app:srcCompat="@drawable/ic_account_circle"
+                            android:layout_marginStart="8dp"/>
+
+                    <TextView
+                            android:id="@+id/post_authorName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/padding_small"
+                            android:paddingRight="@dimen/padding_small"
+                            android:textSize="15sp"
+                            android:layout_gravity="center"
+                            android:textColor="@color/md_black_1000"
+                            tools:text="Shreyas Patil"/>
+                </LinearLayout>
+
+                <TextView
+                        android:id="@+id/post_body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:autoLink="all"
+                        android:linksClickable="true"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                        tools:text="This is body with URL http://shreyaspatil.me"
+                        android:fontFamily="@font/montserrat"/>
+
+                <View
+                        android:layout_marginTop="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/light_grey"/>
+
+                <RelativeLayout
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <com.google.android.material.button.MaterialButton
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                            android:text="Comments"
+                            android:id="@+id/buttonComments"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:iconGravity="textStart"
+                            app:iconPadding="@dimen/padding_small"
+                            app:icon="@drawable/ic_chat"
+                            android:textAllCaps="false"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentBottom="true"/>
+
+                    <com.google.android.material.button.MaterialButton
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                            android:text="Delete"
+                            android:visibility="gone"
+                            android:id="@+id/buttonDelete"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:iconGravity="textStart"
+                            app:iconPadding="@dimen/padding_small"
+                            app:icon="@drawable/ic_close"
+                            android:textAllCaps="false"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentBottom="true"
+
+                            android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@+id/buttonComments"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

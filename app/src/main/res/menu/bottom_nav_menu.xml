@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+        xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+    <item
+            android:id="@+id/navigation_posts"
+            android:orderInCategory="100"
+            android:icon="@drawable/ic_chat"
+            android:title="Posts"/>
+    <item
+            android:id="@+id/navigation_myposts"
+            android:orderInCategory="100"
+            android:icon="@drawable/ic_person"
+            android:title="My Posts"/>
+</menu>

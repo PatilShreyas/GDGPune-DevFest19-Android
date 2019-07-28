@@ -16,6 +16,8 @@
     <color name="white">#fff</color>
     <color name="grey_800">#424242</color>
     <color name="grey_600">#747474</color>
+
+    <color name="grey_300">#D3D3D3</color>
     <color name="spacer_grey">#e0e0e0</color>
     <color name="white_90">#e6ffffff</color>
     <color name="android_green">#76c451</color>

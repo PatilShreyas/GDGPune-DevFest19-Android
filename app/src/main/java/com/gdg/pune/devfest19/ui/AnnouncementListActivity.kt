@@ -25,8 +25,6 @@ class AnnouncementListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_alerts_list)
 
         // Init Toolbar
-        toolbar.navigationIcon = resources.getDrawable(R.drawable.ic_left_arrow)
-
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
