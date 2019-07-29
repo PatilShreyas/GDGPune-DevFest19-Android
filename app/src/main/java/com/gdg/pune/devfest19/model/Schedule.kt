@@ -10,5 +10,6 @@ class Schedule(
     var tags: List<String>? = null,
     var description: String? = null,
     var level: String? = null,
+    var clickable: Boolean? = false,
     var timestamp: Timestamp? = null
 )
