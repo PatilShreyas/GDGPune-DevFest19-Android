@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.gdg.pune.devfest19.R
 import com.gdg.pune.devfest19.ui.fragment.HomeFragment
 import com.gdg.pune.devfest19.ui.fragment.ScheduleFragment
+import com.gdg.pune.devfest19.ui.fragment.SpeakersFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -84,8 +85,7 @@ class MainActivity : AppCompatActivity() {
                 when (drawerItem) {
                     itemHome -> setFragment(HomeFragment())
                     itemSchedule -> setFragment(ScheduleFragment())
-                    itemSpeakers -> {
-                    }//TODO Create Speakers Fragment #2
+                    itemSpeakers -> setFragment(SpeakersFragment())
                     itemFindWay -> {
                     }//TODO Create MapView Fragment #2
                     itemOrganiser -> {
