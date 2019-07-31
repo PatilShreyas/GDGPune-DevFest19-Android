@@ -44,7 +44,6 @@ class OrganisersFragment : AbstractRecyclerFragment() {
             override fun onDataChanged() {
                 hideSwipeRefreshLayout()
             }
-
         }
     }
 }
