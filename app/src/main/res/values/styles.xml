@@ -113,4 +113,33 @@
         <item name="android:background">@drawable/bottomsheet_back</item>
     </style>
 
+    <style name="ScheduleTitle">
+        <item name="android:textColor">@color/md_black_1000</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="ScheduleTime">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/md_blue_A700</item>
+    </style>
+    <style name="ScheduleAmPm">
+        <item name="android:textColor">@color/md_blue_A700</item>
+    </style>
+
+    <style name="TextAppearance.ListSecondary" parent="@style/TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.ADSSched.Tag" parent="@style/TextAppearance.ListSecondary"/>
+
+    <style name="Tag">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:lines">1</item>
+        <item name="android:textAppearance">@style/TextAppearance.ADSSched.Tag</item>
+    </style>
+
+    <style name="Tag.Inline">
+        <item name="android:drawablePadding">@dimen/spacing_micro</item>
+        <item name="android:drawableStart">@drawable/tag_dot</item>
+    </style>
 </resources>

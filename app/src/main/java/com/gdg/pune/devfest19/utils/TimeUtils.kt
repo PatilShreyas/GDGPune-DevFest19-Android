@@ -1,12 +1,13 @@
 package com.gdg.pune.devfest19.utils
 
+import com.google.firebase.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
 
 class TimeUtils {
     companion object {
-        public fun getPeriod(past: Date): String {
+        fun getPeriod(past: Date): String {
             val now = Date()
             val seconds = TimeUnit.MILLISECONDS.toSeconds(now.time - past.time)
             val minutes = TimeUnit.MILLISECONDS.toMinutes(now.time - past.time)
@@ -26,5 +27,9 @@ class TimeUtils {
                 return SimpleDateFormat("dd/MM/yy, hh:mm a").format(past).toString()
             }
         }
+
+        fun getTime(timestamp: Timestamp) = SimpleDateFormat("hh:mm").format(timestamp.toDate()).toString()
+
+        fun getAmPm(timestamp: Timestamp) = SimpleDateFormat("a").format(timestamp.toDate()).toString()
     }
 }

@@ -9,6 +9,8 @@
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_micro">4dp</dimen>
 
+    <dimen name="spacing_micro">4dp</dimen>
+
     <dimen name="recycler_view_width">240dp</dimen>
     <dimen name="drawer_item_view_width">200dp</dimen>
 
@@ -21,4 +23,5 @@
     <dimen name="drawer_text_size">18sp</dimen>
     <dimen name="card_radius">32dp</dimen>
     <dimen name="drawer_item_view_height">32dp</dimen>
+    <dimen name="tag_size">12dp</dimen>
 </resources>
