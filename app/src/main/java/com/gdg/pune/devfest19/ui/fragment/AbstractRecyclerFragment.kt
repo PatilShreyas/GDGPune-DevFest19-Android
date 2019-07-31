@@ -35,6 +35,13 @@ abstract class AbstractRecyclerFragment : Fragment() {
         }
 
         mRecyclerView.adapter = getAdapter()
+
+        showSwipeRefreshLayout()
+    }
+
+    private fun showSwipeRefreshLayout() {
+        mSwipeRefreshLayout.isEnabled = true
+        mSwipeRefreshLayout.isRefreshing = true
     }
 
     protected fun hideSwipeRefreshLayout() {

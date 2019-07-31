@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.gdg.pune.devfest19.R
 import com.gdg.pune.devfest19.ui.fragment.HomeFragment
+import com.gdg.pune.devfest19.ui.fragment.OrganisersFragment
 import com.gdg.pune.devfest19.ui.fragment.ScheduleFragment
 import com.gdg.pune.devfest19.ui.fragment.SpeakersFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -88,8 +89,7 @@ class MainActivity : AppCompatActivity() {
                     itemSpeakers -> setFragment(SpeakersFragment())
                     itemFindWay -> {
                     }//TODO Create MapView Fragment #2
-                    itemOrganiser -> {
-                    }//TODO Create Organiser Fragment #2
+                    itemOrganiser -> setFragment(OrganisersFragment())
                     itemDeveloper -> {
                     }//TODO Create Developers Fragment #2
                     itemLogout -> promptSignOut()
