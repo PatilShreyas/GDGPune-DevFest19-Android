@@ -16,7 +16,6 @@ class ScheduleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var timeView: TextView = itemView.findViewById(R.id.schedule_time)
     var chipView: TextView = itemView.findViewById(R.id.schedule_tag)
 
-
     fun bind(schedule: Schedule, onClickListener: View.OnClickListener?) {
         titleView.text = schedule.title
         timeView.text = TimeUtils.getTime(schedule.timestamp!!)
