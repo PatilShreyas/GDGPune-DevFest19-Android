@@ -14,6 +14,10 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.SpeakerDetailsActivity">
+        </activity>
+        <activity android:name=".ui.SessionDetailsActivity">
+        </activity>
         <activity
                 android:name=".ui.AnnouncementListActivity"
                 android:label="@string/title_activity_list"
@@ -38,7 +42,6 @@
                 android:screenOrientation="portrait"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
-
         <activity
                 android:name=".ui.discuss.DiscussActivity"
                 android:label="@string/title_activity_discuss"
