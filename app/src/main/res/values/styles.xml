@@ -142,4 +142,12 @@
         <item name="android:drawablePadding">@dimen/spacing_micro</item>
         <item name="android:drawableStart">@drawable/tag_dot</item>
     </style>
+
+    <style name="SocialButton">
+        <item name="android:clickable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:layout_margin">@dimen/margin_micro</item>
+        <item name="android:focusable">true</item>
+    </style>
 </resources>

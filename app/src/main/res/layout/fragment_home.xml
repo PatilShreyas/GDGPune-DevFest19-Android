@@ -15,15 +15,20 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/devfest_logo"
                 android:layout_margin="@dimen/margin_normal"
-                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" android:id="@+id/imageView2"/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/imageView2"/>
+
         <TextView
                 android:text="@string/event_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView_event_date"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"/>
+
         <TextView
                 android:text="@string/text_welcome"
                 android:layout_width="match_parent"
@@ -31,8 +36,10 @@
                 android:textSize="18sp"
                 android:textColor="@color/md_black_1000"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView4" android:layout_marginTop="12dp"
-                app:layout_constraintTop_toBottomOf="@+id/textView_event_date" app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/textView4"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView_event_date"
+                app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"/>
 
         <com.google.android.material.button.MaterialButton
@@ -41,10 +48,12 @@
                 android:layout_height="wrap_content"
                 app:icon="@drawable/ic_apply"
                 style="@style/Widget.RaisedButton"
-                android:id="@+id/buttonApply" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/buttonApply"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-        />
+                />
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -52,7 +61,8 @@
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal"
                 android:weightSum="1.0"
-                app:layout_constraintTop_toBottomOf="@+id/buttonApply" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonApply"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.cardview.widget.CardView
@@ -65,6 +75,7 @@
                     android:foreground="?android:attr/selectableItemBackground"
                     android:focusable="true"
                     android:layout_height="wrap_content">
+
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -78,6 +89,7 @@
                             android:tint="@color/md_amber_700"
                             android:layout_margin="@dimen/margin_small"
                             android:src="@drawable/ic_notifications"/>
+
                     <TextView
                             android:gravity="center"
                             android:layout_width="match_parent"
@@ -99,6 +111,7 @@
 
                     app:cardCornerRadius="@dimen/card_radius"
                     android:layout_height="wrap_content">
+
                 <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -112,6 +125,7 @@
                             android:layout_margin="@dimen/margin_small"
                             android:tint="@color/md_green_600"
                             android:src="@drawable/ic_people"/>
+
                     <TextView
                             android:gravity="center"
                             android:layout_width="match_parent"

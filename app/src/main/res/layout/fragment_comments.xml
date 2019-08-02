@@ -10,7 +10,7 @@
     <com.google.android.material.button.MaterialButton
             style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
             android:padding="@dimen/padding_small"
-            android:text="Comments"
+            android:text="@string/button_text_comments"
             app:icon="@drawable/ic_chat"
             android:layout_centerHorizontal="true"
             android:id="@+id/buttonComments"
@@ -34,7 +34,7 @@
                 android:layout_marginTop="8dp"
                 android:scrollIndicators="right"
                 tools:listitem="@layout/item_discuss_comment"
-        />
+                />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
@@ -59,7 +59,7 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:textSize="15sp"
-                android:hint="Write Comment!"
+                android:hint="@string/hint_comment"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 app:layout_constraintStart_toStartOf="parent"

@@ -16,7 +16,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-    >
+            >
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -35,10 +35,13 @@
                     android:textStyle="italic"
                     android:textColorLink="@color/md_light_blue_800"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp" tools:text="Few Seconds Ago"
-                    app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
-                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
-            />
+                    android:layout_marginStart="8dp"
+                    tools:text="Few Seconds Ago"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    />
 
             <TextView
                     android:layout_width="match_parent"
@@ -64,8 +67,11 @@
                     android:linksClickable="true"
                     android:autoLink="all"
                     android:textColorLink="@color/md_light_blue_800"
-                    app:layout_constraintTop_toBottomOf="@+id/alert_title" app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="8dp" android:layout_marginTop="8dp" tools:text="Body of announcement"/>
+                    app:layout_constraintTop_toBottomOf="@+id/alert_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    tools:text="Body of announcement"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

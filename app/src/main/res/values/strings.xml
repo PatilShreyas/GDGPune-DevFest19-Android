@@ -39,5 +39,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="chip_android">Android</string>
+    <string name="button_text_comments">Comments</string>
+    <string name="hint_comment">Write Comment!</string>
 
 </resources>
