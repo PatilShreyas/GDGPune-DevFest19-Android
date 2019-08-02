@@ -24,4 +24,6 @@
     <dimen name="card_radius">32dp</dimen>
     <dimen name="drawer_item_view_height">32dp</dimen>
     <dimen name="tag_size">12dp</dimen>
+    <dimen name="app_bar_height">96dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

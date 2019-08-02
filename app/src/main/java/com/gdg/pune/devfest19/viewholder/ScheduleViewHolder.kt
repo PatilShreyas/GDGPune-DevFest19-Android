@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.gdg.pune.devfest19.R
-import com.gdg.pune.devfest19.model.Schedule
+import com.gdg.pune.devfest19.model.Session
 import com.gdg.pune.devfest19.utils.TimeUtils
 
 class ScheduleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -16,7 +16,7 @@ class ScheduleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var timeView: TextView = itemView.findViewById(R.id.schedule_time)
     var chipView: TextView = itemView.findViewById(R.id.schedule_tag)
 
-    fun bind(schedule: Schedule, onClickListener: View.OnClickListener?) {
+    fun bind(schedule: Session, onClickListener: View.OnClickListener?) {
         titleView.text = schedule.title
         timeView.text = TimeUtils.getTime(schedule.timestamp!!)
         amPmView.text = TimeUtils.getAmPm(schedule.timestamp!!)

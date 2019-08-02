@@ -68,11 +68,11 @@
     </style>
 
     <style name="Widget.TextView" parent="@android:style/Widget.Material.TextView">
-        <item name="android:textAppearance">@style/TextAppearance.ADSSched.Body</item>
+        <item name="android:textAppearance">@style/TextAppearance.Sched.Body</item>
         <item name="android:lineSpacingMultiplier">@dimen/text_line_spacing</item>
     </style>
 
-    <style name="TextAppearance.ADSSched.Body" parent="@style/TextAppearance.AppCompat.Body1">
+    <style name="TextAppearance.Sched.Body" parent="@style/TextAppearance.AppCompat.Body1">
         <item name="android:textColor">?android:textColorSecondary</item>
     </style>
 
@@ -122,6 +122,12 @@
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/md_blue_A700</item>
     </style>
+
+    <style name="ScheduleNormalText">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/md_black_1000</item>
+        <item name="android:drawablePadding">@dimen/padding_micro</item>
+    </style>
     <style name="ScheduleAmPm">
         <item name="android:textColor">@color/md_blue_A700</item>
     </style>
@@ -139,6 +145,7 @@
     </style>
 
     <style name="Tag.Inline">
+        <item name="android:fontFamily">monospace</item>
         <item name="android:drawablePadding">@dimen/spacing_micro</item>
         <item name="android:drawableStart">@drawable/tag_dot</item>
     </style>

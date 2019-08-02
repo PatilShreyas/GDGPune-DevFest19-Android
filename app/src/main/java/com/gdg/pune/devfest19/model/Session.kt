@@ -4,7 +4,7 @@ import com.google.firebase.Timestamp
 import com.google.firebase.firestore.IgnoreExtraProperties
 
 @IgnoreExtraProperties
-class Schedule(
+class Session(
     var title: String? = null,
     var speaker: String? = null,
     var tag: String? = null,

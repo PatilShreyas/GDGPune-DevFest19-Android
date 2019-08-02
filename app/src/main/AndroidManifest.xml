@@ -14,9 +14,13 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+
         <activity android:name=".ui.SpeakerDetailsActivity">
         </activity>
-        <activity android:name=".ui.SessionDetailsActivity">
+        <activity
+                android:name=".ui.SessionDetailsActivity"
+                android:label=""
+                android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
                 android:name=".ui.AnnouncementListActivity"

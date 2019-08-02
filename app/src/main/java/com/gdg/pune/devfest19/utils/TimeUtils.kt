@@ -28,6 +28,8 @@ class TimeUtils {
             }
         }
 
+        fun getFormattedTime(timestamp: Timestamp) = SimpleDateFormat("hh:mm a").format(timestamp.toDate()).toString()
+
         fun getTime(timestamp: Timestamp) = SimpleDateFormat("hh:mm").format(timestamp.toDate()).toString()
 
         fun getAmPm(timestamp: Timestamp) = SimpleDateFormat("a").format(timestamp.toDate()).toString()
