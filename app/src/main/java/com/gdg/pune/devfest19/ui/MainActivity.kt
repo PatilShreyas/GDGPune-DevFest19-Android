@@ -122,17 +122,17 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-//        mAuth = FirebaseAuth.getInstance()
-//        val firebaseUser = mAuth.currentUser
-//
-//        if (firebaseUser == null) {
-//            onAuthNotFound()
-//
-//        } else if (firebaseUser.displayName == null || firebaseUser.email == null || firebaseUser.uid == null) {
-//            onAuthNotFound()
-//        } else {
-//            // Auth successful
-//        }
+       mAuth = FirebaseAuth.getInstance()
+       val firebaseUser = mAuth.currentUser
+
+       if (firebaseUser == null) {
+           onAuthNotFound()
+
+       } else if (firebaseUser.displayName == null || firebaseUser.email == null || firebaseUser.uid == null) {
+           onAuthNotFound()
+       } else {
+           // Auth successful
+       }
     }
 
     private fun onAuthNotFound() {
