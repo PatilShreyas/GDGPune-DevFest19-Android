@@ -56,6 +56,10 @@ class MainActivity : AppCompatActivity() {
             .withTintSelectedIcon(true).withIconColor(resources.getColor(R.color.md_black_1000))
             .withSelectedIconColor(resources.getColor(R.color.md_blue_700))
 
+        val itemOpenSource = SecondaryDrawerItem().withName(R.string.menu_open_source).withIcon(R.drawable.ic_info)
+            .withTintSelectedIcon(true).withIconColor(resources.getColor(R.color.md_black_1000))
+            .withSelectedIconColor(resources.getColor(R.color.md_blue_700))
+
         val itemLogout =
             SecondaryDrawerItem().withName(R.string.menu_logout).withIcon(R.drawable.ic_exit).withTintSelectedIcon(true)
                 .withIconColor(resources.getColor(R.color.md_black_1000))
@@ -76,6 +80,8 @@ class MainActivity : AppCompatActivity() {
                 itemOrganiser,
                 DividerDrawerItem(),
                 itemDeveloper,
+                itemOpenSource,
+                DividerDrawerItem(),
                 itemLogout
             )
             .withSelectedItem(itemHome.identifier)
@@ -88,6 +94,7 @@ class MainActivity : AppCompatActivity() {
                     itemOrganiser -> setFragment(OrganisersFragment())
                     itemDeveloper -> {
                     }//TODO Create Developers Fragment #2
+                    itemOpenSource -> setFragment(OpenSourceFragment())
                     itemLogout -> promptSignOut()
                 }
                 if (drawerItem != itemLogout) {
@@ -122,17 +129,17 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-       mAuth = FirebaseAuth.getInstance()
-       val firebaseUser = mAuth.currentUser
+        mAuth = FirebaseAuth.getInstance()
+        val firebaseUser = mAuth.currentUser
 
-       if (firebaseUser == null) {
-           onAuthNotFound()
+        if (firebaseUser == null) {
+            onAuthNotFound()
 
-       } else if (firebaseUser.displayName == null || firebaseUser.email == null || firebaseUser.uid == null) {
-           onAuthNotFound()
-       } else {
-           // Auth successful
-       }
+        } else if (firebaseUser.displayName == null || firebaseUser.email == null || firebaseUser.uid == null) {
+            onAuthNotFound()
+        } else {
+            // Auth successful
+        }
     }
 
     private fun onAuthNotFound() {

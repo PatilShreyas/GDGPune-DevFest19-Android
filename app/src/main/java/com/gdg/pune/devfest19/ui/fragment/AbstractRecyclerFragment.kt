@@ -34,9 +34,8 @@ abstract class AbstractRecyclerFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
         }
 
-        mRecyclerView.adapter = getAdapter()
-
         showSwipeRefreshLayout()
+        mRecyclerView.adapter = getAdapter()
     }
 
     private fun showSwipeRefreshLayout() {

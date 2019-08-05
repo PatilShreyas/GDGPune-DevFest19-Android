@@ -5,15 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.gdg.pune.devfest19.R
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import android.util.Log
-import com.gdg.pune.devfest19.R
-
 
 
 class MapViewFragment : Fragment(), OnMapReadyCallback {
@@ -32,15 +30,14 @@ class MapViewFragment : Fragment(), OnMapReadyCallback {
     }
 
     override fun onMapReady(googleMap: GoogleMap?) {
-
+        // TODO: Read Latitude and Longitude from remote
         mMap = googleMap!!
-        Log.d("test","In the onmapready")
-        // Add a marker in India and move the camera
+
         val sydney = LatLng(18.526110, 73.844131)
-        Log.d("latlang", sydney.toString())
+
         mMap.addMarker(
             MarkerOptions().position(sydney)
-                .title("ShivajiNagar, Pune")
+                .title("Shivajinagar, Pune")
                 .visible(true)
         )
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,19.0f))

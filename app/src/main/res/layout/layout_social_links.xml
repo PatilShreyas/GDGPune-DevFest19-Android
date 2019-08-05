@@ -32,7 +32,7 @@
             android:id="@+id/buttonGitHub"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_github_brands"
+            android:src="@drawable/ic_github"
             style="@style/SocialButton"/>
 
 </LinearLayout>
