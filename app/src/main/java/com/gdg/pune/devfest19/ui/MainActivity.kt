@@ -5,10 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.gdg.pune.devfest19.R
-import com.gdg.pune.devfest19.ui.fragment.HomeFragment
-import com.gdg.pune.devfest19.ui.fragment.OrganisersFragment
-import com.gdg.pune.devfest19.ui.fragment.ScheduleFragment
-import com.gdg.pune.devfest19.ui.fragment.SpeakersFragment
+import com.gdg.pune.devfest19.ui.fragment.*
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -87,8 +84,7 @@ class MainActivity : AppCompatActivity() {
                     itemHome -> setFragment(HomeFragment())
                     itemSchedule -> setFragment(ScheduleFragment())
                     itemSpeakers -> setFragment(SpeakersFragment())
-                    itemFindWay -> {
-                    }//TODO Create MapView Fragment #2
+                    itemFindWay -> setFragment(MapViewFragment())
                     itemOrganiser -> setFragment(OrganisersFragment())
                     itemDeveloper -> {
                     }//TODO Create Developers Fragment #2
@@ -126,17 +122,17 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        mAuth = FirebaseAuth.getInstance()
-        val firebaseUser = mAuth.currentUser
+       mAuth = FirebaseAuth.getInstance()
+       val firebaseUser = mAuth.currentUser
 
-        if (firebaseUser == null) {
-            onAuthNotFound()
+       if (firebaseUser == null) {
+           onAuthNotFound()
 
-        } else if (firebaseUser.displayName == null || firebaseUser.email == null || firebaseUser.uid == null) {
-            onAuthNotFound()
-        } else {
-            // Auth successful
-        }
+       } else if (firebaseUser.displayName == null || firebaseUser.email == null || firebaseUser.uid == null) {
+           onAuthNotFound()
+       } else {
+           // Auth successful
+       }
     }
 
     private fun onAuthNotFound() {
