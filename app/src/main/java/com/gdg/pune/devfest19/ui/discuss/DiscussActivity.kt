@@ -35,6 +35,7 @@ class DiscussActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_discuss)
 
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_left_arrow)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)

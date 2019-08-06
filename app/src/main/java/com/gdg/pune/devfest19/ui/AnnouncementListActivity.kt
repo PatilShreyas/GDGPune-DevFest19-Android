@@ -12,7 +12,6 @@ import com.gdg.pune.devfest19.Constants
 import com.gdg.pune.devfest19.R
 import com.gdg.pune.devfest19.model.Announcement
 import com.gdg.pune.devfest19.viewholder.AnnouncementViewHolder
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.activity_alerts_list.*
@@ -25,6 +24,7 @@ class AnnouncementListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_alerts_list)
 
         // Init Toolbar
+        toolbar.setNavigationIcon(R.drawable.ic_left_arrow)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -86,8 +86,6 @@ class AnnouncementListActivity : AppCompatActivity() {
         super.onStop()
         mAdapter.stopListening()
     }
-
-    private fun getUid(): String = FirebaseAuth.getInstance().currentUser?.uid!!
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
