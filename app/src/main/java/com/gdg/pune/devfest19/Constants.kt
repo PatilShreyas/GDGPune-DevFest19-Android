@@ -12,5 +12,5 @@ object Constants {
     val scheduleRef = FirebaseFirestore.getInstance().collection("schedule")
     val speakersRef = FirebaseFirestore.getInstance().collection("speakers")
     val organisersRef = FirebaseFirestore.getInstance().collection("organisers")
-    val developersRef = FirebaseFirestore.getInstance().collection("developersRef")
+    val developersRef = FirebaseFirestore.getInstance().collection("developers")
 }

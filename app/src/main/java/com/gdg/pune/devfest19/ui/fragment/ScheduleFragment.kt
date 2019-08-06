@@ -16,7 +16,7 @@ import com.google.firebase.firestore.Query
 
 class ScheduleFragment : AbstractRecyclerFragment() {
 
-    private var mQuery = Constants.scheduleRef.orderBy("timestamp", Query.Direction.DESCENDING)
+    private var mQuery = Constants.scheduleRef.orderBy("timestamp", Query.Direction.ASCENDING)
 
     override fun getAdapter(): RecyclerView.Adapter<*>? {
 

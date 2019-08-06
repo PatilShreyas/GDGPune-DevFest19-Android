@@ -5,10 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.gdg.pune.devfest19.R
-import com.gdg.pune.devfest19.ui.fragment.HomeFragment
-import com.gdg.pune.devfest19.ui.fragment.OrganisersFragment
-import com.gdg.pune.devfest19.ui.fragment.ScheduleFragment
-import com.gdg.pune.devfest19.ui.fragment.SpeakersFragment
+import com.gdg.pune.devfest19.ui.fragment.*
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -59,6 +56,10 @@ class MainActivity : AppCompatActivity() {
             .withTintSelectedIcon(true).withIconColor(resources.getColor(R.color.md_black_1000))
             .withSelectedIconColor(resources.getColor(R.color.md_blue_700))
 
+        val itemOpenSource = SecondaryDrawerItem().withName(R.string.menu_open_source).withIcon(R.drawable.ic_info)
+            .withTintSelectedIcon(true).withIconColor(resources.getColor(R.color.md_black_1000))
+            .withSelectedIconColor(resources.getColor(R.color.md_blue_700))
+
         val itemLogout =
             SecondaryDrawerItem().withName(R.string.menu_logout).withIcon(R.drawable.ic_exit).withTintSelectedIcon(true)
                 .withIconColor(resources.getColor(R.color.md_black_1000))
@@ -79,6 +80,8 @@ class MainActivity : AppCompatActivity() {
                 itemOrganiser,
                 DividerDrawerItem(),
                 itemDeveloper,
+                itemOpenSource,
+                DividerDrawerItem(),
                 itemLogout
             )
             .withSelectedItem(itemHome.identifier)
@@ -87,11 +90,10 @@ class MainActivity : AppCompatActivity() {
                     itemHome -> setFragment(HomeFragment())
                     itemSchedule -> setFragment(ScheduleFragment())
                     itemSpeakers -> setFragment(SpeakersFragment())
-                    itemFindWay -> {
-                    }//TODO Create MapView Fragment #2
+                    itemFindWay -> setFragment(MapViewFragment())
                     itemOrganiser -> setFragment(OrganisersFragment())
-                    itemDeveloper -> {
-                    }//TODO Create Developers Fragment #2
+                    itemDeveloper -> setFragment(DevelopersFragment())
+                    itemOpenSource -> setFragment(OpenSourceFragment())
                     itemLogout -> promptSignOut()
                 }
                 if (drawerItem != itemLogout) {

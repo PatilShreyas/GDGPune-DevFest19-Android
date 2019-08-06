@@ -30,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/toolbar_head"/>
+                    android:src="@drawable/banner_header"/>
 
             <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
