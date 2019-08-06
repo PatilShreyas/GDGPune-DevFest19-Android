@@ -21,7 +21,7 @@
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <dimen name="nav_header_height">128dp</dimen>
     <dimen name="drawer_text_size">18sp</dimen>
-    <dimen name="card_radius">32dp</dimen>
+    <dimen name="card_radius">8dp</dimen>
     <dimen name="drawer_item_view_height">32dp</dimen>
     <dimen name="tag_size">12dp</dimen>
     <dimen name="app_bar_height">96dp</dimen>

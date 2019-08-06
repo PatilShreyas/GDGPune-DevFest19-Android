@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
         <ImageView
                 android:layout_width="match_parent"
@@ -71,6 +71,7 @@
                     android:layout_weight="0.5"
                     android:layout_width="0dp"
                     android:clickable="true"
+                    app:cardElevation="4dp"
                     app:cardCornerRadius="@dimen/card_radius"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:focusable="true"
@@ -105,6 +106,7 @@
                     android:layout_margin="@dimen/margin_small"
                     android:layout_weight="0.5"
                     android:layout_width="0dp"
+                    app:cardElevation="4dp"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:focusable="true"
