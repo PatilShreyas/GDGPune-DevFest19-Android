@@ -92,8 +92,7 @@ class MainActivity : AppCompatActivity() {
                     itemSpeakers -> setFragment(SpeakersFragment())
                     itemFindWay -> setFragment(MapViewFragment())
                     itemOrganiser -> setFragment(OrganisersFragment())
-                    itemDeveloper -> {
-                    }//TODO Create Developers Fragment #2
+                    itemDeveloper -> setFragment(DevelopersFragment())
                     itemOpenSource -> setFragment(OpenSourceFragment())
                     itemLogout -> promptSignOut()
                 }
