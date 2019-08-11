@@ -10,7 +10,7 @@
             android:id="@+id/buttonWeb"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_web"
+            android:src="@drawable/ic_user_circle"
             android:tint="@color/md_blue_800"
             style="@style/SocialButton"/>
 

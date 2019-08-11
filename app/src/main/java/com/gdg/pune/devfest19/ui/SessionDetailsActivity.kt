@@ -34,10 +34,13 @@ class SessionDetailsActivity : AppCompatActivity() {
             mSessionReference = Constants.scheduleRef.document(sessionKey)
         } else {
             finish()
+            return
         }
+
+        initSessionView()
     }
 
-    override fun onStart() {
+    private fun initSessionView() {
         super.onStart()
 
         mSessionReference.addSnapshotListener { snapshot: DocumentSnapshot?,

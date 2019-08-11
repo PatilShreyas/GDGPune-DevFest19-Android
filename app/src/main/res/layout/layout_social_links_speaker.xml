@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="horizontal"
+              android:padding="@dimen/padding_micro"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:weightSum="1.0"
+              android:layout_gravity="center_horizontal">
+
+    <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonWeb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            app:icon="@drawable/ic_user_circle"
+            style="@style/SocialButtonSpeaker"/>
+
+    <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonTwitter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            app:icon="@drawable/ic_twitter"
+            style="@style/SocialButtonSpeaker"/>
+
+    <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonLinkedIn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            app:icon="@drawable/ic_linkedin"
+            style="@style/SocialButtonSpeaker"/>
+
+    <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonGitHub"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            app:icon="@drawable/ic_github"
+            style="@style/SocialButtonSpeaker"/>
+</LinearLayout>

@@ -3,7 +3,6 @@ package com.gdg.pune.devfest19.ui
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
@@ -34,12 +33,13 @@ class SpeakerDetailsActivity : AppCompatActivity() {
             mSpeakerReference = Constants.speakersRef.document(speakerKey)
         } else {
             finish()
+            return
         }
+
+        initSpeakerView()
     }
 
-    override fun onStart() {
-        super.onStart()
-
+    private fun initSpeakerView() {
         mSpeakerReference.addSnapshotListener { snapshot: DocumentSnapshot?,
                                                 exception: FirebaseFirestoreException? ->
 
@@ -84,42 +84,27 @@ class SpeakerDetailsActivity : AppCompatActivity() {
                             if (websiteLink.isNullOrBlank()) {
                                 buttonWeb.gone()
                             } else {
-                                if (!websiteLink!!.startsWith("http://") && !websiteLink!!.startsWith("https://")) {
-                                    websiteLink = "http://$websiteLink";
-                                }
                                 buttonWeb.visible()
                             }
-
 
                             // Twitter Button
                             if (twitterLink.isNullOrBlank()) {
                                 buttonTwitter.gone()
                             } else {
-                                if (!twitterLink!!.startsWith("http://") && !twitterLink!!.startsWith("https://")) {
-                                    twitterLink = "http://$twitterLink"
-                                }
                                 buttonTwitter.visible()
                             }
-
 
                             // GitHub Button
                             if (gitHubLink.isNullOrBlank()) {
                                 buttonGitHub.gone()
                             } else {
-                                if (!gitHubLink!!.startsWith("http://") && !gitHubLink!!.startsWith("https://")) {
-                                    gitHubLink = "http://$gitHubLink"
-                                }
                                 buttonGitHub.visible()
                             }
-
 
                             // LinkedIn Button
                             if (linkedInLink.isNullOrBlank()) {
                                 buttonLinkedIn.gone()
                             } else {
-                                if (!linkedInLink!!.startsWith("http://") && !linkedInLink!!.startsWith("https://")) {
-                                    linkedInLink = "http://$linkedInLink"
-                                }
                                 buttonLinkedIn.visible()
                             }
                         }
