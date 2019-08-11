@@ -34,40 +34,44 @@ class SessionDetailsActivity : AppCompatActivity() {
             mSessionReference = Constants.scheduleRef.document(sessionKey)
         } else {
             finish()
+            return
         }
+
+        initSessionView()
     }
 
-    override fun onStart() {
-        super.onStart()
-
+    private fun initSessionView() {
         mSessionReference.addSnapshotListener { snapshot: DocumentSnapshot?,
                                                 exception: FirebaseFirestoreException? ->
-            if (snapshot != null) {
-                if (snapshot.exists()) {
-                    val session = snapshot.toObject(Session::class.java)
+            if (!this.isDestroyed) {
 
-                    if (session != null) {
-                        schedule_title.text = session.title
-                        schedule_speaker.text = session.speaker
-                        schedule_time.text = TimeUtils.getFormattedTime(session.timestamp!!)
-                        schedule_level.text = session.level
-                        schedule_tag.text = session.tag
-                        schedule_desription.text = session.description
+                if (snapshot != null) {
+                    if (snapshot.exists()) {
+                        val session = snapshot.toObject(Session::class.java)
 
-                        (schedule_tag.compoundDrawablesRelative[0] as? GradientDrawable)?.setColor(
-                            Color.parseColor(
-                                session.chipColor
+                        if (session != null) {
+                            schedule_title.text = session.title
+                            schedule_speaker.text = session.speaker
+                            schedule_time.text = TimeUtils.getFormattedTime(session.timestamp!!)
+                            schedule_level.text = session.level
+                            schedule_tag.text = session.tag
+                            schedule_desription.text = session.description
+
+                            (schedule_tag.compoundDrawablesRelative[0] as? GradientDrawable)?.setColor(
+                                Color.parseColor(
+                                    session.chipColor
+                                )
                             )
-                        )
 
+                        } else {
+                            finish()
+                        }
                     } else {
                         finish()
                     }
                 } else {
                     finish()
                 }
-            } else {
-                finish()
             }
 
             exception?.printStackTrace()
