@@ -43,71 +43,74 @@ class SpeakerDetailsActivity : AppCompatActivity() {
     private fun initSpeakerView() {
         mSpeakerReference.addSnapshotListener { snapshot: DocumentSnapshot?,
                                                 exception: FirebaseFirestoreException? ->
+            if (!this.isDestroyed) {
+                if (snapshot != null) {
+                    if (snapshot.exists()) {
+                        val speaker = snapshot.toObject(Speaker::class.java)
 
-            if (snapshot != null) {
-                if (snapshot.exists()) {
-                    val speaker = snapshot.toObject(Speaker::class.java)
+                        if (speaker != null) {
+                            speakerName.text = speaker.name
+                            speakerDesignation.text = speaker.designation
+                            speakerIntro.text = speaker.introduction
 
-                    if (speaker != null) {
-                        speakerName.text = speaker.name
-                        speakerDesignation.text = speaker.designation
-                        speakerIntro.text = speaker.introduction
+                            if (speaker.photoUrl != null) {
+                                Glide.with(this)
+                                    .load(speaker.photoUrl)
+                                    .centerCrop()
+                                    .into(speakerImg)
+                            } else {
+                                speakerImg.setImageResource(R.drawable.ic_account_circle)
+                            }
 
-                        if (speaker.photoUrl != null) {
-                            Glide.with(this)
-                                .load(speaker.photoUrl)
-                                .centerCrop()
-                                .into(speakerImg)
+                            val viewIntent = Intent(Intent.ACTION_VIEW)
+
+                            val onLinkClickListener = View.OnClickListener {
+                                when (it.id) {
+                                    R.id.buttonWeb -> viewIntent.data = Uri.parse(speaker.websiteLink)
+                                    R.id.buttonTwitter -> viewIntent.data = Uri.parse(speaker.twitterLink)
+                                    R.id.buttonGitHub -> viewIntent.data = Uri.parse(speaker.gitHubLink)
+                                    R.id.buttonLinkedIn -> viewIntent.data = Uri.parse(speaker.linkedInLink)
+                                }
+                                startActivity(viewIntent)
+                            }
+
+                            buttonWeb.setOnClickListener(onLinkClickListener)
+                            buttonGitHub.setOnClickListener(onLinkClickListener)
+                            buttonTwitter.setOnClickListener(onLinkClickListener)
+                            buttonLinkedIn.setOnClickListener(onLinkClickListener)
+
+                            // Init Social Links
+                            speaker.run {
+                                // Website Button
+                                if (websiteLink.isNullOrBlank()) {
+                                    buttonWeb.gone()
+                                } else {
+                                    buttonWeb.visible()
+                                }
+
+                                // Twitter Button
+                                if (twitterLink.isNullOrBlank()) {
+                                    buttonTwitter.gone()
+                                } else {
+                                    buttonTwitter.visible()
+                                }
+
+                                // GitHub Button
+                                if (gitHubLink.isNullOrBlank()) {
+                                    buttonGitHub.gone()
+                                } else {
+                                    buttonGitHub.visible()
+                                }
+
+                                // LinkedIn Button
+                                if (linkedInLink.isNullOrBlank()) {
+                                    buttonLinkedIn.gone()
+                                } else {
+                                    buttonLinkedIn.visible()
+                                }
+                            }
                         } else {
-                            speakerImg.setImageResource(R.drawable.ic_account_circle)
-                        }
-
-                        val viewIntent = Intent(Intent.ACTION_VIEW)
-
-                        val onLinkClickListener = View.OnClickListener {
-                            when (it.id) {
-                                R.id.buttonWeb -> viewIntent.data = Uri.parse(speaker.websiteLink)
-                                R.id.buttonTwitter -> viewIntent.data = Uri.parse(speaker.twitterLink)
-                                R.id.buttonGitHub -> viewIntent.data = Uri.parse(speaker.gitHubLink)
-                                R.id.buttonLinkedIn -> viewIntent.data = Uri.parse(speaker.linkedInLink)
-                            }
-                            startActivity(viewIntent)
-                        }
-
-                        buttonWeb.setOnClickListener(onLinkClickListener)
-                        buttonGitHub.setOnClickListener(onLinkClickListener)
-                        buttonTwitter.setOnClickListener(onLinkClickListener)
-                        buttonLinkedIn.setOnClickListener(onLinkClickListener)
-
-                        // Init Social Links
-                        speaker.run {
-                            // Website Button
-                            if (websiteLink.isNullOrBlank()) {
-                                buttonWeb.gone()
-                            } else {
-                                buttonWeb.visible()
-                            }
-
-                            // Twitter Button
-                            if (twitterLink.isNullOrBlank()) {
-                                buttonTwitter.gone()
-                            } else {
-                                buttonTwitter.visible()
-                            }
-
-                            // GitHub Button
-                            if (gitHubLink.isNullOrBlank()) {
-                                buttonGitHub.gone()
-                            } else {
-                                buttonGitHub.visible()
-                            }
-
-                            // LinkedIn Button
-                            if (linkedInLink.isNullOrBlank()) {
-                                buttonLinkedIn.gone()
-                            } else {
-                                buttonLinkedIn.visible()
-                            }
+                            finish()
                         }
                     } else {
                         finish()
@@ -115,10 +118,7 @@ class SpeakerDetailsActivity : AppCompatActivity() {
                 } else {
                     finish()
                 }
-            } else {
-                finish()
             }
-
             exception?.printStackTrace()
         }
 
