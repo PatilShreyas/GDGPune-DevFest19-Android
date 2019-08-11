@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -7,75 +7,60 @@
         android:layout_height="match_parent"
         tools:context=".ui.SpeakerDetailsActivity">
 
-    <com.gdg.pune.devfest19.ui.custom.CircleImageView
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            tools:srcCompat="@tools:sample/avatars"
-            android:id="@+id/speakerImg"
-            android:layout_marginTop="48dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"/>
-
-    <TextView
-            android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:fitsSystemWindows="true"
+            android:background="@color/white"
             android:layout_height="wrap_content"
-            android:id="@+id/speakerName"
-            app:layout_constraintTop_toBottomOf="@+id/speakerImg"
-            app:layout_constraintEnd_toEndOf="@+id/speakerImg"
-            app:layout_constraintStart_toStartOf="@+id/speakerImg"
-            tools:text="Seth Vargo"
-            style="@style/SpeakerName"/>
+            android:layout_width="match_parent"
+            app:elevation="0dp"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-    <TextView
-            tools:text="Engineer at Google Cloud"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/speakerDesignation"
-            app:layout_constraintTop_toBottomOf="@+id/speakerName"
-            app:layout_constraintStart_toStartOf="@+id/speakerName"
-            app:layout_constraintEnd_toEndOf="@+id/speakerName"
-            style="@style/SpeakerDesignation"/>
-
-    <include
-            layout="@layout/layout_social_links_speaker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/speakerDesignation"
-            app:layout_constraintEnd_toEndOf="@+id/speakerName"
-            app:layout_constraintStart_toStartOf="@+id/speakerName"
-            android:layout_marginTop="16dp"
-            android:id="@+id/speakerSocialLinks"/>
-
-    <ScrollView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="16dp"
-            android:id="@+id/scrollView3"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@+id/speakerSocialLinks"
-            app:layout_constraintVertical_bias="0.0"
-            android:padding="8dp"
-            >
-
-        <LinearLayout
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:fitsSystemWindows="true"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                app:toolbarId="@+id/toolbar"
+                app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
+                app:contentScrim="@color/colorPrimary">
 
-            <TextView
+
+            <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/speakerIntro"
-                    tools:text="@tools:sample/lorem/random"
-                    style="@style/SpeakerIntro"/>
-        </LinearLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/nav_header_height"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/banner_header"/>
+
+                <com.gdg.pune.devfest19.ui.custom.CircleImageView
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        tools:srcCompat="@tools:sample/avatars"
+                        android:id="@+id/speakerImg"
+                        android:layout_gravity="center_horizontal"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginTop="32dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+            </FrameLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:background="@android:color/transparent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_width="match_parent"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_speaker_details"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -43,6 +43,12 @@
         <item name="material_drawer_legacy_style">false</item> <!-- Enables legacy Material 1 style -->
     </style>
 
+    <style name="AppTheme.NoActionBar.Translucent">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Light">
         <item name="android:fontFamily">@font/google_sans</item>
     </style>
@@ -176,6 +182,7 @@
     </style>
 
     <style name="SpeakerIntro">
+        <item name="android:layout_margin">@dimen/margin_normal</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textAlignment">viewStart</item>
     </style>

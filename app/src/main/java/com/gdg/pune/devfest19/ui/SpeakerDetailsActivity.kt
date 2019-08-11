@@ -4,7 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageButton
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.gdg.pune.devfest19.Constants
@@ -14,7 +14,8 @@ import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestoreException
 import kotlinx.android.synthetic.main.activity_speaker_details.*
-import kotlinx.android.synthetic.main.layout_social_links.*
+import kotlinx.android.synthetic.main.content_speaker_details.*
+import kotlinx.android.synthetic.main.layout_social_links_speaker.*
 
 class SpeakerDetailsActivity : AppCompatActivity() {
 
@@ -24,9 +25,9 @@ class SpeakerDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_speaker_details)
 
+        setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.elevation = 0.0F
 
         val speakerKey = intent.getStringExtra(SPEAKER_KEY)
         if (speakerKey != null) {
@@ -78,7 +79,7 @@ class SpeakerDetailsActivity : AppCompatActivity() {
                         buttonTwitter.setOnClickListener(onLinkClickListener)
                         buttonLinkedIn.setOnClickListener(onLinkClickListener)
 
-                        //Append "https://" to url links that don't have the prefix
+                        // Init Social Links
                         speaker.run {
                             // Website Button
                             if (websiteLink.isNullOrBlank()) {
@@ -128,12 +129,12 @@ class SpeakerDetailsActivity : AppCompatActivity() {
         return true
     }
 
-    private fun ImageButton.visible() {
+    private fun Button.visible() {
         visibility = View.VISIBLE
     }
 
 
-    private fun ImageButton.gone() {
+    private fun Button.gone() {
         visibility = View.GONE
     }
 
