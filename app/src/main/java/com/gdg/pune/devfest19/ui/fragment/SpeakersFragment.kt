@@ -1,7 +1,5 @@
 package com.gdg.pune.devfest19.ui.fragment
 
-import android.content.Intent
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
@@ -9,7 +7,6 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.gdg.pune.devfest19.Constants
 import com.gdg.pune.devfest19.R
 import com.gdg.pune.devfest19.model.Speaker
-import com.gdg.pune.devfest19.ui.SpeakerDetailsActivity
 import com.gdg.pune.devfest19.viewholder.SpeakerViewHolder
 
 
@@ -30,15 +27,7 @@ class SpeakersFragment : AbstractRecyclerFragment() {
             )
 
             override fun onBindViewHolder(viewHolder: SpeakerViewHolder, position: Int, model: Speaker) {
-
-                val ref = snapshots.getSnapshot(position).reference
-
-                val intent = Intent(context, SpeakerDetailsActivity::class.java)
-                intent.putExtra(SpeakerDetailsActivity.SPEAKER_KEY, ref.id)
-
-                viewHolder.bind(model, View.OnClickListener {
-                    startActivity(intent)
-                })
+                viewHolder.bind(model, null)
             }
 
             override fun onDataChanged() {

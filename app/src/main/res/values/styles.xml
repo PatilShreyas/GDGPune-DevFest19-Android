@@ -43,12 +43,6 @@
         <item name="material_drawer_legacy_style">false</item> <!-- Enables legacy Material 1 style -->
     </style>
 
-    <style name="AppTheme.NoActionBar.Translucent">
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-    </style>
-
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Light">
         <item name="android:fontFamily">@font/google_sans</item>
     </style>
@@ -162,28 +156,5 @@
         <item name="android:background">@android:color/transparent</item>
         <item name="android:layout_margin">@dimen/margin_micro</item>
         <item name="android:focusable">true</item>
-    </style>
-
-    <style name="SocialButtonSpeaker" parent="Widget.MaterialComponents.Button.OutlinedButton.Icon">
-        <item name="iconPadding">0dp</item>
-        <item name="iconGravity">textStart</item>
-        <item name="android:layout_margin">@dimen/padding_micro</item>
-    </style>
-
-    <style name="SpeakerName">
-        <item name="android:layout_marginTop">24dp</item>
-        <item name="android:textSize">24sp</item>
-        <item name="android:textColor">@color/md_black_1000</item>
-    </style>
-
-    <style name="SpeakerDesignation">
-        <item name="android:layout_marginTop">4dp</item>
-        <item name="android:textSize">14sp</item>
-    </style>
-
-    <style name="SpeakerIntro">
-        <item name="android:layout_margin">@dimen/margin_normal</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textAlignment">viewStart</item>
     </style>
 </resources>

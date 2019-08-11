@@ -38,9 +38,6 @@ class DeveloperViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // Init Social Links
         val viewIntent = Intent(Intent.ACTION_VIEW)
 
-        // Set flag for crash fix. Issue #21
-        viewIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-
         val onLinkClickListener = View.OnClickListener {
             when (it.id) {
                 R.id.buttonWeb -> viewIntent.data = Uri.parse(developer.websiteLink)
