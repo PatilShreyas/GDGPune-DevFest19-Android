@@ -1,5 +1,6 @@
 package com.gdg.pune.devfest19.viewholder
 
+import android.content.Intent
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.gdg.pune.devfest19.R
 import com.gdg.pune.devfest19.model.Speaker
+import com.gdg.pune.devfest19.ui.SpeakerDetailsActivity
 
 class SpeakerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -29,6 +31,9 @@ class SpeakerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         } else {
             profileView.setImageResource(R.drawable.ic_account_circle)
         }
+
         speakerCard.setOnClickListener(onClickListener)
+
     }
+
 }
