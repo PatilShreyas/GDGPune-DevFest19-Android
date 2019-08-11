@@ -46,7 +46,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/speaker_designation"
-                    android:text="New"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:textSize="14sp"
@@ -59,7 +58,10 @@
                     android:layout_marginStart="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginTop="4dp"/>
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_bias="0.0"/>
 
             <com.gdg.pune.devfest19.ui.custom.CircleImageView
                     android:layout_width="48dp"
